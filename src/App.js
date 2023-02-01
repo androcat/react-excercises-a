@@ -4,9 +4,13 @@ import BlogForm from "./components/BlogForm";
 import { useState } from "react";
 
 function App() {
-  const [post, setPost] = useState([]);
+  const [posts, setPost] = useState([]);
 
-  return <BlogForm />;
+  const addPost = (post) => {
+    setPost([post, ...posts]);
+  };
+
+  return <BlogForm addPost={addPost} />;
 }
 
 export default App;
